@@ -1,0 +1,27 @@
+This is monorepo project set up 
+
+
+commands
+
+npm install -g nx       // for downloading nx globaly
+
+//front-end
+
+npx create-nx-workspace@latest 'your project name'    // this command will help to create you your project,
+ select config according your need,  this will create frontend app //
+
+ nx serve 'project-name'   // this command will run frontend project
+
+
+ // back-end
+
+nx add @nx/node   // this command will help for creating a backend project
+nx g @nx/node:application 'backend-project-name' // this will help you to choose you backend framework 
+
+
+//lib
+
+nx g @nx/js:lib lib-name // this will create lib for project
+
+
+
