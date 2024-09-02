@@ -24,4 +24,15 @@ nx g @nx/node:application 'backend-project-name' // this will help you to choose
 nx g @nx/js:lib lib-name // this will create lib for project
 
 
+// if you want to add second project inn this repo use this commands
+
+// react
+nx generate @nx/react:app project-2
+
+//node
+nx generate @nx/node:app project-2
+
+//library
+nx generate @nx/js:lib project-2
+
 
