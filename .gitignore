@@ -7,6 +7,7 @@ tmp
 
 # dependencies
 node_modules
+/nx.json
 
 # IDEs and editors
 /.idea
@@ -40,4 +41,3 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
-nx.json
