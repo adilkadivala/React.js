@@ -1,0 +1,26 @@
+=> this consepts are covered in this project <=
+
+infinite scrolling 
+lazy loading or code splitting 
+writing network layer
+vertulization
+error boundry
+suspence
+
+
+==> requirment of project <==
+
+product should be added, updated, deleted, 
+
+==> components of project <==
+
+text
+button
+card component
+
+
+==> number of pages <==
+
+listing 
+detail 
+card
