@@ -3,7 +3,7 @@ import useNetwork from '../../network/useNetwork';
 import './style.css';
 import API from '../../data/product.json';
 
-const List = () => {
+const List = ({ onProductSelect }) => {
   const { get, isLoading, data } = useNetwork();
 
   useEffect(() => {
@@ -16,7 +16,12 @@ const List = () => {
         {data.map((d) => {
           const { id, product, amount } = d;
           return (
-            <div key={id}>
+            <div
+              key={id}
+              onClick={() => {
+                onProductSelect(d);
+              }}
+            >
               {id},{product}, {amount}
             </div>
           );

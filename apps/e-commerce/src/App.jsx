@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      <List onProductSelect={setslectedProduct} />
-      {selectedProduct && <Detail />}
+      {!selectedProduct && <List onProductSelect={setslectedProduct} />}
+      {selectedProduct && <Detail onBack={setslectedProduct} />}
       {iscartPage && <Cart />}
     </>
   );
