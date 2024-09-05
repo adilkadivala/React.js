@@ -1,8 +1,14 @@
+import Cart from './pages/cart';
+import Detail from './pages/detail';
+import List from './pages/list';
+
 function App() {
   return (
-    <div>
-      <h1>hello</h1>
-    </div>
+    <>
+      <List />
+      <Detail />
+      <Cart />
+    </>
   );
 }
 
