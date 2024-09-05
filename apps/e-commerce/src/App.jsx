@@ -1,7 +1,12 @@
-import { useState } from 'react';
-import Cart from './pages/cart';
-import Detail from './pages/detail';
+import { useState, lazy, Suspense } from 'react';
 import List from './pages/list';
+
+const Detail = lazy(() => {
+  return import('./pages/detail');
+});
+const Cart = lazy(() => {
+  return import('./pages/cart');
+});
 
 function App() {
   const [selectedProduct, setslectedProduct] = useState(null);
@@ -9,8 +14,16 @@ function App() {
 
   return (
     <>
-      {!selectedProduct && <List onProductSelect={setslectedProduct} />}
-      {selectedProduct && <Detail onBack={setslectedProduct} />}
+      {!selectedProduct && (
+        <Suspense fallback="Loading...">
+          <List onProductSelect={setslectedProduct} />
+        </Suspense>
+      )}
+      {selectedProduct && (
+        <Suspense fallback="Loading...">
+          <Detail onBack={setslectedProduct} />
+        </Suspense>
+      )}
       {iscartPage && <Cart />}
     </>
   );

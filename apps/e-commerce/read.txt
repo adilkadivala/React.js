@@ -1,11 +1,13 @@
 => this consepts are covered in this project <=
 
 infinite scrolling 
-lazy loading or code splitting 
+
+lazy loading or code splitting // is a component provided by react for handling ui component that can user download it when used have any need of that's ui, 
+
 writing network layer
 vertulization
 error boundry
-suspence
+suspence   // is a component provided by react for handling suspended component, 
 
 
 ==> requirment of project <==
