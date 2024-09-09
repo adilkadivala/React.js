@@ -1,12 +1,23 @@
 => this consepts are covered in this project <=
 
-infinite scrolling 
+infinite scrolling //
 
 lazy loading or code splitting // is a component provided by react for handling ui component that can user download it when used have any need of that's ui, 
 
-writing network layer
-vertulization
-error boundry
+writing network layer //
+
+vertulization // use react vertualized
+
+
+error boundry // this is only a class based componenet which is used in function, go to react/docs and search error boundry and copy it,  then wrap you all componenets in error boundry which you want to protech to creshing on error,  
+
+ex:// <Errorboundry fallback="Error got in Cart"><Cart /></Errorboundry>
+ex:// <Errorboundry fallback="Error got in Deatil"><Deatil /></Errorboundry>
+ex:// <Errorboundry fallback="Error got in List"><List /></Errorboundry>
+
+if you got error in Cart then just cart componenet will break and other componenet will run as well, and you got as an error " Error got in Cart ";
+
+
 suspence   // is a component provided by react for handling suspended component, 
 
 
