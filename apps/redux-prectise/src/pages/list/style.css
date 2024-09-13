@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.cardparent {
+  display: flex;
+  width: 100vw;
+  gap: 2rem;
+  background-color: rgb(151, 186, 187);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.productCard {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  background-color: #f0f8ff;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  cursor: pointer;
+
+  img {
+    width: 10vw;
+    object-fit: cover;
+    mix-blend-mode: darken;
+    margin-bottom: 0.7rem;
+  }
+
+  button {
+    padding: 0.7rem 1rem;
+    border: none;
+    background-color: rgb(154, 187, 187);
+    cursor: pointer;
+    border-radius: 0.2rem;
+  }
+}
