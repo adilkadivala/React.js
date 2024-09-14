@@ -4,15 +4,24 @@ export const updateLoader = (value) => {
     value,
   };
 };
+
 export const updateError = (value) => {
   return {
     type: 'update_error',
     value,
   };
 };
+
 export const updateData = (value) => {
   return {
     type: 'update_Data',
+    value,
+  };
+};
+
+export const addToCart = (value) => {
+  return {
+    type: 'update_cart',
     value,
   };
 };

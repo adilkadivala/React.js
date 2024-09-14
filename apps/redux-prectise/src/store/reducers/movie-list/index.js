@@ -17,7 +17,12 @@ function movieListReducers(state = initialState, action) {
     }
     case 'update_Data': {
       const oldState = { ...state };
-      oldState.movies = action.value;
+      oldState.movie = action.value;
+      return oldState;
+    }
+    case 'update_cart': {
+      const oldState = { ...state };
+      oldState.cart.push(action.value);
       return oldState;
     }
 

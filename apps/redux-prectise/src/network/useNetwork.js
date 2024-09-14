@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   updateData,
@@ -17,13 +16,13 @@ export function useNetwork() {
       dispatch(updateData([]));
 
       const response = await axios.get(url);
-      updateData(response.data);
+      dispatch(updateData(response.data));
     } catch (error) {
       console.log(error);
-      updateError(error);
+      dispatch(updateError(error));
     } finally {
       () => {
-        updateLoader(false);
+        dispatch(updateLoader(false));
       };
     }
   }
