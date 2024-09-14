@@ -22,7 +22,12 @@ function movieListReducers(state = initialState, action) {
     }
     case 'update_cart': {
       const oldState = { ...state };
-      oldState.cart.push(action.value);
+      oldState.cart = [...oldState.cart, action.value];
+      return oldState;
+    }
+    case 'remove_cart': {
+      const oldState = { ...state };
+      oldState.cart.pop(action.value);
       return oldState;
     }
 

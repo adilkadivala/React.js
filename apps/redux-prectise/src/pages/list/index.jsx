@@ -3,12 +3,15 @@ import { useNetwork } from '../../network/useNetwork';
 import './style.css';
 import Navbar from '../../components/Navbar';
 import Button from '../../components/Button';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from '../../store/actions/movie-list';
 
 const API = 'https://fakestoreapi.com/products';
 
-const List = ({ onProductSelect }) => {
+const List = () => {
   const { get } = useNetwork();
+
+  const dispatch = useDispatch();
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -16,11 +19,32 @@ const List = ({ onProductSelect }) => {
     setIsCartOpen(!isCartOpen);
   };
 
+  const handleItemCart = (movie) => {
+    return () => {
+      dispatch(addToCart(movie));
+    };
+  };
+
+  const handleremoveCart = (movie) => {
+    return () => {
+      dispatch(removeFromCart(movie));
+    };
+  };
+
   const movies = useSelector(function (state) {
-    return state;
+    return state.movie;
+  });
+  const cart = useSelector(function (state) {
+    return state.cart;
+  });
+  const isError = useSelector(function (state) {
+    return state.isError;
+  });
+  const isLoading = useSelector(function (state) {
+    return state.isLoading;
   });
 
-  const { isLoading, movie, isError } = movies;
+  console.log(cart, 'cart');
 
   useEffect(() => {
     get(API);
@@ -30,12 +54,12 @@ const List = ({ onProductSelect }) => {
     return <div>Loading...</div>;
   }
 
-  if (movie?.length) {
+  if (movies?.length) {
     return (
       <>
         <Navbar handleCart={handleCart} />
         <div className="cardparent">
-          {movie.map((d, index) => {
+          {movies.map((d, index) => {
             const { title, price, image } = d;
 
             return (
@@ -43,12 +67,7 @@ const List = ({ onProductSelect }) => {
                 <img src={image} alt="product image" />
                 <p>{title}</p>
                 <p>$ {price}</p>
-                <Button
-                  onClick={() => {
-                    onProductSelect(d);
-                  }}
-                  text=" Add to cart"
-                />
+                <Button onClick={handleItemCart(movies)} text=" Add to cart" />
               </div>
             );
           })}
@@ -57,7 +76,6 @@ const List = ({ onProductSelect }) => {
         {isCartOpen && (
           <div
             style={{
-              border: '1px solid red',
               width: '35vw',
               position: 'absolute',
               top: '6.5rem',
@@ -66,7 +84,20 @@ const List = ({ onProductSelect }) => {
               height: '90vh',
             }}
           >
-            <p>kk</p>
+            {cart?.map((item, index) => {
+              const { title, price, image } = item;
+              return (
+                <div key={index} className="productCard">
+                  <img src={image} alt="product image" />
+                  <p>{title}</p>
+                  <p>$ {price}</p>
+                  <Button
+                    onClick={handleremoveCart(movies)}
+                    text=" Add to cart"
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
       </>

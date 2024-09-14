@@ -25,3 +25,10 @@ export const addToCart = (value) => {
     value,
   };
 };
+
+export const removeFromCart = (value) => {
+  return {
+    type: 'remove_cart',
+    value,
+  };
+};
